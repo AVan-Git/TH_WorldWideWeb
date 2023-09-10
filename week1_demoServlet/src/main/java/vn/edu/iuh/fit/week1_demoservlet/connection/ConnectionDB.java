@@ -7,9 +7,9 @@ public class ConnectionDB {
 
     private static Connection connectionBD = null;
 
-    public static String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-    public static String URL = "jdbc:mariadb://localhost:3307/mydatabase?createDatabaseIfNotExist=true";
-    public static String USER = "root";
+    public String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
+    public String URL = "jdbc:mariadb://localhost:3307/mydatabase?createDatabaseIfNotExist=true";
+    public String USER = "root";
     public String PASS = "sapassword";
 
     public ConnectionDB() throws Exception {
@@ -24,7 +24,4 @@ public class ConnectionDB {
         return connectionBD;
     }
 
-    public void setConnectionBD(Connection connectionBD) {
-        this.connectionBD = connectionBD;
-    }
 }

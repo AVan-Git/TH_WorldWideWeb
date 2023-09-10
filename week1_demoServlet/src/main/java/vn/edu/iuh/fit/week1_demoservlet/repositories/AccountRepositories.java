@@ -6,6 +6,10 @@ import vn.edu.iuh.fit.week1_demoservlet.models.Account;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class AccountRepositories {
 
@@ -40,9 +44,59 @@ public class AccountRepositories {
         ps.setString(4, account.getPhone());
         ps.setInt(5, account.getStatus());
         ps.executeUpdate();
-
-
     }
+
+    //del
+    public void delete(String maXoa) throws Exception{
+        String sql = "DELETE FROM Account WHERE account_id=? ";
+        PreparedStatement ps = connect.prepareStatement(sql);
+        ps.setString(1, maXoa);
+        ps.executeUpdate();
+    }
+
+    public Optional<Account> getById(String maTim) throws  Exception{
+        String sql = "SELECT * FROM Account WHERE account_id = ?";
+        PreparedStatement ps = connect.prepareStatement(sql);
+        ps.setString(1, maTim);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next())
+        {
+            Account a = new Account(rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getInt(6)
+                    );
+
+            return Optional.of(a);
+        }
+
+        return  Optional.empty();
+    }
+
+    //
+    public List<Account> getALL ()  throws Exception {
+        String sql = "SELECT * FROM Account";
+        PreparedStatement ps = connect.prepareStatement(sql);
+        ResultSet rs  = ps.executeQuery();
+        List<Account> lst = new ArrayList<>();
+
+        while (rs.next()){
+            Account a = new Account(rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getInt(6)
+            );
+
+            lst.add(a);
+        }
+
+        return lst;
+    }
+
 
 
 
