@@ -21,9 +21,10 @@ public class MainWeek1 {
        try {
 //            Connection z = new ConnectionDB().getConnectionBD();
            AccountRepositories repositories = new AccountRepositories();
-           Account acc1 = new Account("01","A van","123456","A@gmail.com"
-                   ,"0123456789",0);
-           repositories.insert(acc1);
+           Account acc1 = new Account("01","A van update","123456"
+                   ,"A@gmail.com"
+                   ,"0123456789",1);
+           repositories.update(acc1);
 
            System.out.println("ok");
 

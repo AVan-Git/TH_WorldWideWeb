@@ -30,6 +30,20 @@ public class AccountRepositories {
     }
 
     // cap nhat acc
+    public void update(Account account) throws Exception{
+        String sql = "UPDATE Account set full_name=?, password=?, email=?, phone=?, status=? where account_id=?";
+        PreparedStatement ps = connect.prepareStatement(sql);
+        ps.setString(6, account.getAccount_id());
+        ps.setString(1, account.getFull_name());
+        ps.setString(2, account.getPassword());
+        ps.setString(3, account.getEmail());
+        ps.setString(4, account.getPhone());
+        ps.setInt(5, account.getStatus());
+        ps.executeUpdate();
+
+
+    }
+
 
 
 

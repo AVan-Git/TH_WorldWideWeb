@@ -1,0 +1,7 @@
+public Account
+	String account_id
+	String full_name
+	String password
+	String email
+	String phone
+	int status
