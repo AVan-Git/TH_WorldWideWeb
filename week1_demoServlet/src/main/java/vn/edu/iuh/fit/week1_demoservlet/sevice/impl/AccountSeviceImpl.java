@@ -10,8 +10,8 @@ import java.util.Optional;
 
 public class AccountSeviceImpl implements AccountSevice {
 
-    @Inject
-    private AccountRepositories repositories;
+
+    private AccountRepositories repositories = new AccountRepositories();
 
     @Override
     public Optional<Account> getByID(String id) throws Exception {

@@ -15,8 +15,15 @@ public class AccountRepositories {
 
     private Connection connect = null;
 
-    public AccountRepositories() throws Exception {
-        connect = new ConnectionDB().getConnectionBD();
+    public AccountRepositories()  {
+        try {
+            connect = new ConnectionDB().getConnectionBD();
+        }
+        catch (Exception e)
+        {
+            System.err.println("AccountRepositories");
+            System.err.println(e);
+        }
     }
 
     // them 1 acc
