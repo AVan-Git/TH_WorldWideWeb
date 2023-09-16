@@ -8,7 +8,7 @@ public class ConnectionDB {
     private static Connection connectionBD = null;
 
     public String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-    public String URL = "jdbc:mariadb://localhost:3307/mydatabase?createDatabaseIfNotExist=true";
+    public String URL = "jdbc:mariadb://localhost:3306/mydatabase?createDatabaseIfNotExist=true";
     public String USER = "root";
     public String PASS = "sapassword";
 
