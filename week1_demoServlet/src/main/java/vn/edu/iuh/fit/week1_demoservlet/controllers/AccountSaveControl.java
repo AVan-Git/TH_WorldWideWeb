@@ -44,11 +44,12 @@ public class AccountSaveControl extends HttpServlet {
             accountSevice.insert(acc);
             out.print("<p>Record saved successfully!</p>");
             req.getRequestDispatcher("index.html").include(req,res);
+            out.close();
         } catch (Exception e) {
             out.println("Sorry! unable to save record");
             err.println("controll - Save");
             System.err.println(e);
-
+            out.close();
         }
 
         out.close();
