@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import vn.edu.iuh.fit.enums.ProductStatus;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "product")
 @ToString
@@ -28,6 +31,16 @@ public class Product {
     @Column(nullable = false)
     private ProductStatus status;
 
+    // JPA
+//
+//    //Cach 1 manytomany
+//    @ManyToMany(mappedBy = "productSet")
+//    private Set<Order> orderSet;
 
+    @OneToMany(mappedBy = "product")
+    private List<ProductImage> productImages;
+
+    @OneToMany(mappedBy = "product2")
+    private List<ProductPrice> productPrices;
 
 }
