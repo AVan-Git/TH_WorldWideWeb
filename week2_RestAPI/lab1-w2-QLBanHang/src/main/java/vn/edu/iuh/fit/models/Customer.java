@@ -3,6 +3,8 @@ package vn.edu.iuh.fit.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "customer")
 @Setter
@@ -25,5 +27,10 @@ public class Customer {
     private String phone;
     @Column(length = 100)
     private String address;
+
+
+    //JPA
+    @OneToMany(mappedBy = "customer")
+    private List<Order> lstOrders;
 
 }

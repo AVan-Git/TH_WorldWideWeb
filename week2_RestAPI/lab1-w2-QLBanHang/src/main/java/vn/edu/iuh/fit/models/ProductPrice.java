@@ -1,14 +1,18 @@
 package vn.edu.iuh.fit.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.sql.Date;
 
 @Entity
 @Table(name = "product_price")
+@Setter
+@Getter
+@ToString
+@AllArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class ProductPrice {
     @Id @Column(name = "price_date_time", nullable = false)
     private Date priceDateTime;
@@ -19,46 +23,8 @@ public class ProductPrice {
     @Column(nullable = false)
     private double price;
 
-
-    @Override
-    public String toString() {
-        return "ProductPrice{" +
-                "priceDateTime=" + priceDateTime +
-                ", note='" + note + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
-    public Date getPriceDateTime() {
-        return priceDateTime;
-    }
-
-    public void setPriceDateTime(Date priceDateTime) {
-        this.priceDateTime = priceDateTime;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public ProductPrice(Date priceDateTime, String note, double price) {
-        this.priceDateTime = priceDateTime;
-        this.note = note;
-        this.price = price;
-    }
-
-    public ProductPrice() {
-    }
+    // JPA
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private  Product product2;
 }

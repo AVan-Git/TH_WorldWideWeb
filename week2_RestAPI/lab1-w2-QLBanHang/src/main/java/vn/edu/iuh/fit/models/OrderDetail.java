@@ -1,10 +1,11 @@
 package vn.edu.iuh.fit.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+/***
+ * order_detail (order_id, product_id, quantity, price, note)
+ */
 @Entity
 @Table(name = "order_detail")
 @Setter
@@ -20,6 +21,21 @@ public class OrderDetail {
     @Column(nullable = false)
     private double price;
     private String note;
+
+    // JPA
+    // cachs 2 manytomany:  CompositeKey
+    @EmbeddedId
+    private OrderDetailKey orderDetailKey;
+    @ManyToOne
+    @MapsId("order_id")
+    @JoinColumn(name = "order_id")
+    private Order order;
+    @ManyToOne
+    @MapsId("product_id")
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+
 
 
 }
