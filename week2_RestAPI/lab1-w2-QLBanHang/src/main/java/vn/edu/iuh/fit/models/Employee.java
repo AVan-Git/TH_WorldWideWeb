@@ -16,9 +16,9 @@ public class Employee {
     private String fullname;
     @Column (nullable = false)
     private Date dob;// ngaySinh
-    @Column(unique = true, length = 100, nullable = true)
+    @Column(unique = true, length = 100, nullable = true) // unique: độc nhất
     private String email;
-    @Column(length = 15, nullable = true)
+    @Column(unique = true, length = 15, nullable = true)
     private String phone;
     @Column(length = 255, nullable = false)
     private String address;
