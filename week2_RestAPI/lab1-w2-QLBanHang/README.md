@@ -1,5 +1,5 @@
 # bai tap tuan 2 - myShop
-
+     sử dụng JPA - ORM - mariadb
 ## Note: 
 ### persistence.xml :
 sự khác nhau của transaction-type( [link stackoverflow](https://stackoverflow.com/questions/17331024/persistence-xml-different-transaction-type-attributes) )
