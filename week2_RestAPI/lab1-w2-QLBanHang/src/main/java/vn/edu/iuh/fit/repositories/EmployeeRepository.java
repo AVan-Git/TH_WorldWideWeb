@@ -36,7 +36,7 @@ public class EmployeeRepository {
     //update
     public void setStatus(Employee employee, EmployeeStatus status){
         employee.setStatus(status);
-        update(employee);
+//        update(employee);
     }
     public  void update(Employee employee) {
         try {

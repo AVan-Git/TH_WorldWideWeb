@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import vn.edu.iuh.fit.enums.EmployeeStatus;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -12,7 +12,6 @@ import java.util.List;
 @Setter
 @Getter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Employee {
@@ -24,7 +23,7 @@ public class Employee {
     @Column(name = "full_name", length = 150, nullable = false)
     private String fullname;
     @Column(nullable = false)
-    private Date dob;// ngaySinh
+    private LocalDate dob;// ngaySinh
     @Column(unique = true, length = 100, nullable = true) // unique: độc nhất
     private String email;
     @Column(unique = true, length = 15, nullable = true)
@@ -38,4 +37,31 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private List<Order> lstOrder;
 
+    public void setStatus(EmployeeStatus status) {
+        this.status = status;
+    }
+
+    public Employee(final long id, final String fullname, final LocalDate dob, final String email,
+                    final String phone, final String address, final EmployeeStatus status) {
+        this.id = id;
+        this.fullname = fullname;
+        this.dob = dob;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", fullname='" + fullname + '\'' +
+                ", dob=" + dob +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }
