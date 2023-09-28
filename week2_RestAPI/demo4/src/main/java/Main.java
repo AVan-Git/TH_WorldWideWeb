@@ -6,7 +6,7 @@ import jakarta.persistence.Persistence;
 public class Main {
     public static void main(String[] args) {
         Customer emp = new Customer();
-        emp.setFull_name("Nguyen Van 3");
+        emp.setFull_name("Nguyen Van 4");
 
         EntityManagerFactory  entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
