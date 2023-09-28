@@ -1,38 +1,45 @@
 package vn.edu.iuh.fit.models;
 
 import jakarta.persistence.*;
-import lombok.*;
 import vn.edu.iuh.fit.enums.EmployeeStatus;
 
 import java.time.LocalDate;
-import java.util.List;
 
+/**
+ * employee (emp_id, full_name, dob, email, phone, address, status)
+ */
 @Entity
 @Table(name = "employee")
-
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "emp_id")
     private long id;
-
-    @Column(name = "full_name", length = 150, nullable = false)
-    private String fullname;
-    @Column(nullable = false)
-    private LocalDate dob;// ngaySinh
-    @Column(unique = true, length = 100, nullable = true) // unique: độc nhất
+    @Column(name = "full_name", nullable = false, length = 150)
+    private String name;
+    @Column(name = "dob")
+    private LocalDate dob;
+    @Column(name = "email",length = 50, unique = true) //unique: su doc nhat
     private String email;
-    @Column(unique = true, length = 15, nullable = true)
+    @Column(name = "phone",length = 15, unique = true) //unique: su doc nhat
     private String phone;
-    @Column(length = 255, nullable = false)
+    @Column(name = "address",length = 255)
     private String address;
-    @Column(nullable = false)
+    @Column(name = "status",nullable = false)
     private EmployeeStatus status;
 
-    // JPA
-    @OneToMany(mappedBy = "employee")
-    private List<Order> lstOrder;
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dob=" + dob +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", status=" + status +
+                '}';
+    }
 
     public long getId() {
         return id;
@@ -42,12 +49,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getName() {
+        return name;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public LocalDate getDob() {
@@ -90,21 +97,16 @@ public class Employee {
         this.status = status;
     }
 
-    public Employee(long id, String fullname, LocalDate dob, String email, String phone, String address, EmployeeStatus status) {
+    public Employee() {
+    }
+
+    public Employee(long id, String name, LocalDate dob, String email, String phone, String address, EmployeeStatus status) {
         this.id = id;
-        this.fullname = fullname;
+        this.name = name;
         this.dob = dob;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.status = status;
-    }
-
-    public Employee() {
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" + "id=" + id + ", fullname='" + fullname + '\'' + ", dob=" + dob + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", address='" + address + '\'' + ", status=" + status + '}';
     }
 }
