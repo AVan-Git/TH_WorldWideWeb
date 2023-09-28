@@ -2,7 +2,7 @@
 
 ## tài liệu
 
-[link] (https://vovanhai.files.wordpress.com/2023/09/lab-week-2.pdf)
+[Tài liệu](https://vovanhai.files.wordpress.com/2023/09/lab-week-2.pdf)
 
 ### persistence.xml
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -31,5 +31,5 @@
 ![...](./tai_lieu/images/img_mariadb.png)
 
 ### data mariadb
-[link](abc)
+[link](./tai_lieu/mySQL_mariadb/query.sql)
 
