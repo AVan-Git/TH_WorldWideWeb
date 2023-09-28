@@ -28,7 +28,7 @@ public class mainRepostory {
                         .create();
 
         String result = gson.toJson(e1, Employee.class);
-        System.out.println(result);
+        System.out.println("1- " + result);
 
         repository.insert(e1);
 

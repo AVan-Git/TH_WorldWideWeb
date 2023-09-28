@@ -9,11 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "employee")
-@Setter
-@Getter
-@ToString
-@NoArgsConstructor
-@RequiredArgsConstructor
+
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,12 +33,64 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private List<Order> lstOrder;
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public EmployeeStatus getStatus() {
+        return status;
+    }
+
     public void setStatus(EmployeeStatus status) {
         this.status = status;
     }
 
-    public Employee(final long id, final String fullname, final LocalDate dob, final String email,
-                    final String phone, final String address, final EmployeeStatus status) {
+    public Employee(long id, String fullname, LocalDate dob, String email, String phone, String address, EmployeeStatus status) {
         this.id = id;
         this.fullname = fullname;
         this.dob = dob;
@@ -52,16 +100,11 @@ public class Employee {
         this.status = status;
     }
 
+    public Employee() {
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", fullname='" + fullname + '\'' +
-                ", dob=" + dob +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", status=" + status +
-                '}';
+        return "Employee{" + "id=" + id + ", fullname='" + fullname + '\'' + ", dob=" + dob + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", address='" + address + '\'' + ", status=" + status + '}';
     }
 }

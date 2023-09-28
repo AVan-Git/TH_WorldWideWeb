@@ -29,6 +29,7 @@ public class EmployeeRepository {
 
         }catch (Exception e)
         {
+            System.out.println("err -- "+e);
             transactionEntity.rollback();
             logger.error(e.getMessage());
         }
