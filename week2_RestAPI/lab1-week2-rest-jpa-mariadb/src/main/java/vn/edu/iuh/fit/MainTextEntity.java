@@ -9,6 +9,7 @@ import vn.edu.iuh.fit.models.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,15 +70,22 @@ public class MainTextEntity {
         order.setCustomer(cus);
         order.setEmployee(emp);
 
+        ///Product - price
+        ProductPrice price = new ProductPrice();
+        LocalDateTime timeNow = LocalDateTime.now();
+        price.setNote("Note -- "+ timeNow);
+        price.setPriceDateTime(timeNow);
+        price.setPrice(250);
 
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        entityManager.persist(emp);
-        entityManager.persist(cus);
-        entityManager.persist(order);
+//        entityManager.persist(emp);
+//        entityManager.persist(cus);
+//        entityManager.persist(order);
+        entityManager.persist(price);
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();
