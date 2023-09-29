@@ -8,6 +8,7 @@ import vn.edu.iuh.fit.enums.ProductStatus;
 import vn.edu.iuh.fit.models.Customer;
 import vn.edu.iuh.fit.models.Employee;
 import vn.edu.iuh.fit.models.Product;
+import vn.edu.iuh.fit.models.ProductImage;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -38,12 +39,16 @@ public class MainTextEntity {
         cus.setPhone("0951753002");
         cus.setAddress("12 phan co ich");
 
+        ProductImage image = new ProductImage();
+        image.setPath("https://picsum.photos/id/2/200/200");
+        image.setAlternative("product image");
+
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
-        entityManager.persist(cus);
+        entityManager.persist(image);
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();
