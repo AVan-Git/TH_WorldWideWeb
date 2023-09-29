@@ -10,6 +10,8 @@
     <class>vn.edu.iuh.fit.models.Product</class>
     <class>vn.edu.iuh.fit.models.Customer</class>
     <class>vn.edu.iuh.fit.models.ProductImage</class>
+    <class>vn.edu.iuh.fit.models.Order</class>
+
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
     <properties>

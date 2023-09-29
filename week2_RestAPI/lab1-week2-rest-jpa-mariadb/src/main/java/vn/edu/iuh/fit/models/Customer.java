@@ -2,6 +2,8 @@ package vn.edu.iuh.fit.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 /**
  * customer (cust_id, cust_name, email, phone, address)
  *
@@ -24,6 +26,11 @@ public class Customer {
     private String phone;
     @Column(name = "address")
     private String address;
+
+    //JPA
+    @OneToMany(mappedBy = "customer")
+    private List<Order> lstOrders;
+
 
     public Customer() {
     }

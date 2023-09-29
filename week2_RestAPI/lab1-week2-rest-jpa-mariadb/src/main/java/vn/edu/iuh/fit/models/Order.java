@@ -1,0 +1,69 @@
+package vn.edu.iuh.fit.models;
+
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
+
+/**
+ * orders (order_id, order_date, emp_id, cust_id)
+ */
+
+@Entity
+@Table(name = "orders")
+public class Order {
+    @Id
+    @GeneratedValue
+    @Column(name = "order_id")
+    private long id;
+    @Column(name = "order_date")
+    private LocalDate orderDate;
+
+    //JPA
+    @ManyToOne
+    @JoinColumn(name = "emp_id", nullable = false)
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "cust_id", nullable = false)
+    private Customer customer;
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public Order() {
+    }
+
+    public Order(long id, LocalDate orderDate) {
+        this.id = id;
+        this.orderDate = orderDate;
+    }
+}
