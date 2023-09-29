@@ -4,22 +4,31 @@ import jakarta.persistence.*;
 
 /**
  * product_image (product_id, image_id, path, alternative)
- *
  */
 @Entity
 @Table(name = "product_image")
 public class ProductImage {
     @Id
     @GeneratedValue
-    @Column(name = "product_id")
+    @Column(name = "image_id")
     private long id;
     @Column(name = "path", nullable = false)
     private String path; // src
-    @Column(name = "alternative", nullable = false)
+    @Column(name = "alternative")
     private String alternative;
 
     //JPA
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     @Override
     public String toString() {

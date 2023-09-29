@@ -3,6 +3,8 @@ package vn.edu.iuh.fit.models;
 import jakarta.persistence.*;
 import vn.edu.iuh.fit.enums.ProductStatus;
 
+import java.util.List;
+
 /**
  * product (product_id, name
  * , description : mieu ta
@@ -27,7 +29,18 @@ public class Product {
     private String manufacturerName;
     @Column(name = "status")
     private ProductStatus status;
-//
+
+    //JPA
+    @OneToMany(mappedBy = "product",cascade = CascadeType.PERSIST)
+    private List<ProductImage> productImages;
+
+    public List<ProductImage> getProductImages() {
+        return productImages;
+    }
+
+    public void setProductImages(List<ProductImage> productImages) {
+        this.productImages = productImages;
+    }
 
     public Product(long id, String name
             , String description, String unit
