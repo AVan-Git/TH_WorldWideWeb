@@ -1,9 +1,6 @@
 package vn.edu.iuh.fit.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,6 +19,19 @@ public class ProductPrice {
     private double price;
     @Column(name = "note")
     private String note;
+
+    //JPA
+    @ManyToOne
+    @JoinColumn(name = "product_id",unique = false,nullable = true)
+    private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     public ProductPrice(LocalDateTime priceDateTime, double price, String note) {
         this.priceDateTime = priceDateTime;

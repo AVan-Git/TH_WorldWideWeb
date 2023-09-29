@@ -34,6 +34,9 @@ public class Product {
     @OneToMany(mappedBy = "product",cascade = CascadeType.PERSIST)
     private List<ProductImage> productImages;
 
+    @OneToMany(mappedBy = "product",cascade = CascadeType.PERSIST)
+    private List<ProductPrice> productPrices;
+
     public List<ProductImage> getProductImages() {
         return productImages;
     }

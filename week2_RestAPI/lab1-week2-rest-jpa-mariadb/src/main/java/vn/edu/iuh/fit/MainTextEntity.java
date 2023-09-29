@@ -71,11 +71,19 @@ public class MainTextEntity {
         order.setEmployee(emp);
 
         ///Product - price
-        ProductPrice price = new ProductPrice();
         LocalDateTime timeNow = LocalDateTime.now();
-        price.setNote("Note -- "+ timeNow);
-        price.setPriceDateTime(timeNow);
+
+        ProductPrice price = new ProductPrice();
+        price.setNote("Note -- "+ date);
+        price.setPriceDateTime(LocalDateTime.of(2012,12,02,4,45));
         price.setPrice(250);
+        price.setProduct(pro2);
+
+        ProductPrice price2 = new ProductPrice();
+        price2.setNote("Note -- "+ timeNow);
+        price2.setPriceDateTime(timeNow);
+        price2.setPrice(250);
+        price2.setProduct(pro2);
 
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -85,7 +93,10 @@ public class MainTextEntity {
 //        entityManager.persist(emp);
 //        entityManager.persist(cus);
 //        entityManager.persist(order);
+        entityManager.persist(pro2);
         entityManager.persist(price);
+        entityManager.persist(price2);
+
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();
