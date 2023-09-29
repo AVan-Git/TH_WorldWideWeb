@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import vn.edu.iuh.fit.enums.EmployeeStatus;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * employee (emp_id, full_name, dob, email, phone, address, status)
@@ -27,6 +28,10 @@ public class Employee {
     private String address;
     @Column(name = "status",nullable = false)
     private EmployeeStatus status;
+
+    //JPA
+    @OneToMany(mappedBy = "employee")
+    private List<Order> lstOrder;
 
     @Override
     public String toString() {
