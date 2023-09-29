@@ -3,6 +3,7 @@ package vn.edu.iuh.fit.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * orders (order_id, order_date, emp_id, cust_id)
@@ -26,6 +27,11 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "cust_id", nullable = false)
     private Customer customer;
+
+//    @ManyToMany
+//    @JoinTable(name = "order_detail", joinColumns = @JoinColumn(name = "order_id"),
+//        inverseJoinColumns =@JoinColumn(name = "product_id") )
+//    private List<Product> lstProduct;
 
     public Employee getEmployee() {
         return employee;
