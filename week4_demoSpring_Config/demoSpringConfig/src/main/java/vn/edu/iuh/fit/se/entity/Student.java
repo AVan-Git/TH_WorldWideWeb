@@ -48,4 +48,9 @@ public class Student {
         this.name = name;
         this.classs = classs;
     }
+
+    public Student(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

@@ -22,4 +22,34 @@
         <constructor-arg name="classs" ref="c1"/>
     </bean>
 
+
+    <bean id="add1" class="vn.edu.iuh.fit.se.entity.Address" >
+        <property name="city" value="City 1"/>
+        <property name="country" value="country 1"/>
+        <property name="street" value="street 1"/>
+    </bean>
+    <bean id="add2" class="vn.edu.iuh.fit.se.entity.Address" >
+        <property name="city" value="City 2"/>
+        <property name="country" value="country 2"/>
+        <property name="street" value="street 2"/>
+    </bean>
+
+    <bean id="person1" class="vn.edu.iuh.fit.se.entity.Person" >
+        <property name="age" value="20"/>
+        <property name="name" value="name 1"/>
+        <property name="emails" >
+            <list>
+                <value>Avan@gmail.com</value>
+                <value>Avan2@gmail.com</value>
+            </list>
+        </property>
+        <property name="lstAddress" >
+            <list>
+                <ref bean="add1"/>
+                <ref bean="add2"/>
+            </list>
+        </property>
+    </bean>
+
+
 </beans>
