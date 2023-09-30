@@ -3,8 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="c1" class="vn.edu.iuh.fit.se.entity.Classs">
+        <property name="id" value="10"/>
+        <property name="name" value="DHTH20"/>
+    </bean>
+
+<!--config theo setter - getter-->
     <bean id="student1" class="vn.edu.iuh.fit.se.entity.Student" >
         <property name="id" value="001"/>
         <property name="name" value="Avan 1"/>
+        <property name="classs" ref="c1"/>
     </bean>
+
+    <!--config theo contructor-->
+    <bean id="student2" class="vn.edu.iuh.fit.se.entity.Student" >
+        <constructor-arg name="id" value="002"/>
+        <constructor-arg name="name" value="Avan 2"/>
+        <constructor-arg name="classs" ref="c1"/>
+    </bean>
+
 </beans>

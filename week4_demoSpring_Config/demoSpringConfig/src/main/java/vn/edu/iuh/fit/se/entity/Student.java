@@ -5,12 +5,23 @@ public class Student {
     private long id ;
     private String name;
 
+    private Classs classs;
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", classs=" + classs +
                 '}';
+    }
+
+    public Classs getClasss() {
+        return classs;
+    }
+
+    public void setClasss(Classs classs) {
+        this.classs = classs;
     }
 
     public String getName() {
@@ -32,8 +43,9 @@ public class Student {
     public Student() {
     }
 
-    public Student(long id, String name) {
+    public Student(long id, String name, Classs classs) {
         this.id = id;
         this.name = name;
+        this.classs = classs;
     }
 }

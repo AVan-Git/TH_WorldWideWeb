@@ -8,7 +8,9 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         Student st1 = context.getBean("student1", Student.class);
+        Student st2 = context.getBean("student2", Student.class);
         System.out.println(st1);
+        System.out.println(st2);
 
 
     }
