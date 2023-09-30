@@ -8,17 +8,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "order_detail")
 public class OrderDetail {
-    @EmbeddedId
-    private OrderDetailKey id;
 
-    @ManyToOne
-    @MapsId("order_id")
-    @JoinColumn(name = "order_id")
-    private Order order;
-    @ManyToOne
-    @MapsId("product_id")
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @Id@GeneratedValue
+    @Column(name = "order_detail_id")
+    private long id;
 
     @Column(name = "quantity", nullable = false)
     private int quantity;
@@ -27,38 +20,31 @@ public class OrderDetail {
     @Column(name = "note")
     private String note;
 
-    public OrderDetail(Order order, Product product, int quantity, double price, String note) {
-        this.order = order;
-        this.product = product;
-        this.quantity = quantity;
-        this.price = price;
-        this.note = note;
+    // JPA
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "id=" + id +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                ", note='" + note + '\'' +
+                ", order=" + order +
+                ", product=" + product +
+                '}';
     }
 
-    public OrderDetail() {
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public OrderDetailKey getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(OrderDetailKey id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -86,15 +72,31 @@ public class OrderDetail {
         this.note = note;
     }
 
-    @Override
-    public String toString() {
-        return "OrderDetail{" +
-                "id=" + id +
-                ", order=" + order +
-                ", product=" + product +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                ", note='" + note + '\'' +
-                '}';
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public OrderDetail() {
+    }
+
+    public OrderDetail(long id, int quantity, double price, String note, Order order, Product product) {
+        this.id = id;
+        this.quantity = quantity;
+        this.price = price;
+        this.note = note;
+        this.order = order;
+        this.product = product;
     }
 }

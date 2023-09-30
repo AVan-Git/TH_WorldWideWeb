@@ -7,13 +7,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Customer {
-    public Customer(Long id, String name) {
-        this.id = id;
-        this.full_name = name;
-    }
 
-    public Customer() {
-    }
 
     @Id
     @GeneratedValue
@@ -43,5 +37,13 @@ public class Customer {
 
     public void setFull_name(String name) {
         this.full_name = name;
+    }
+
+    public Customer(Long id, String name) {
+        this.id = id;
+        this.full_name = name;
+    }
+
+    public Customer() {
     }
 }
