@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="c1" class="vn.edu.iuh.fit.se.entity.Classs">
+        <property name="id" value="10"/>
+        <property name="name" value="DHTH20"/>
+    </bean>
+
+<!--config theo setter - getter-->
+    <bean id="student1" class="vn.edu.iuh.fit.se.entity.Student" >
+        <property name="id" value="001"/>
+        <property name="name" value="Avan 1"/>
+        <property name="classs" ref="c1"/>
+    </bean>
+
+    <!--config theo contructor-->
+    <bean id="student2" class="vn.edu.iuh.fit.se.entity.Student" >
+        <constructor-arg name="id" value="002"/>
+        <constructor-arg name="name" value="Avan 2"/>
+        <constructor-arg name="classs" ref="c1"/>
+    </bean>
+
+
+    <bean id="add1" class="vn.edu.iuh.fit.se.entity.Address" >
+        <property name="city" value="City 1"/>
+        <property name="country" value="country 1"/>
+        <property name="street" value="street 1"/>
+    </bean>
+    <bean id="add2" class="vn.edu.iuh.fit.se.entity.Address" >
+        <property name="city" value="City 2"/>
+        <property name="country" value="country 2"/>
+        <property name="street" value="street 2"/>
+    </bean>
+
+    <bean id="person1" class="vn.edu.iuh.fit.se.entity.Person" >
+        <property name="age" value="20"/>
+        <property name="name" value="name 1"/>
+        <property name="emails" >
+            <list>
+                <value>Avan@gmail.com</value>
+                <value>Avan2@gmail.com</value>
+            </list>
+        </property>
+        <property name="lstAddress" >
+            <list>
+                <ref bean="add1"/>
+                <ref bean="add2"/>
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

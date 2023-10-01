@@ -1,0 +1,2 @@
+Demo Spring Configuring Beans in the Container XML-Based Configuration
+file tai lieu : https://vovanhai.files.wordpress.com/2023/09/2-0.-spring-ecosytem.pdf
