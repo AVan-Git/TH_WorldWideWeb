@@ -33,6 +33,10 @@ public class Order {
 //        inverseJoinColumns =@JoinColumn(name = "product_id") )
 //    private List<Product> lstProduct;
 
+    //errr
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order_id")
+//    private List<OrderDetail> orderDetails;
+
     public Employee getEmployee() {
         return employee;
     }

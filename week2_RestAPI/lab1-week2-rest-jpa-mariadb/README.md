@@ -1,5 +1,9 @@
 # BT thực hành www - tuần 2-3: Rest API - JPA - Mariadb
 
+## Note
+    - Cần rút ngắn repository lại  để tránh trường hợp khởi tạo nhiều entityManager
+    - fix bang class ConnectJPA
+
 ## tài liệu
 
 [Tài liệu](https://vovanhai.files.wordpress.com/2023/09/lab-week-2.pdf)

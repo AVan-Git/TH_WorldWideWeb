@@ -39,6 +39,9 @@ public class Product {
 
 //    @ManyToMany(mappedBy = "order_detail")
 //    private List<Order> lstOrder;
+    //err
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+//    private List<OrderDetail> orderDetails;
 
 
     public List<ProductImage> getProductImages() {

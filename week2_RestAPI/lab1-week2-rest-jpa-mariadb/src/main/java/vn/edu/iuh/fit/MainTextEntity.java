@@ -93,8 +93,15 @@ public class MainTextEntity {
         orderDetail.setPrice(price.getPrice());
         orderDetail.setQuantity(12);
 
+        OrderDetail orderDetail2 = new OrderDetail();
+        orderDetail2.setOrder(order);
+        orderDetail2.setProduct(pro2);
+        orderDetail2.setNote(price2.getNote());
+        orderDetail2.setPrice(price2.getPrice());
+        orderDetail2.setQuantity(10);
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("lab-week2");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
@@ -107,6 +114,7 @@ public class MainTextEntity {
 
         entityManager.persist(order);
         entityManager.persist(orderDetail);
+        entityManager.persist(orderDetail2);
 
         entityManager.getTransaction().commit();
         entityManager.close();
