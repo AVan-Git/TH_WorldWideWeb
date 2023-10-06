@@ -44,6 +44,7 @@ public class MainTextRepository {
         cus.setAddress("12 phan co ich UPdate");
         cus.setId(252L);
 
+
 //        customerReponsitory.insert(cus);
 //        customerReponsitory.update(cus);
         Optional<Customer> opCus = customerReponsitory.getById(152L);
