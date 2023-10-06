@@ -2,9 +2,7 @@ package vn.edu.iuh.fit.repositores;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
-import org.glassfish.jersey.internal.inject.Custom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vn.edu.iuh.fit.connect.ConnectJpa;
@@ -14,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CustomerReponsitory {
+public class CustomerRepository {
     private EntityManager entityManager;
     private EntityTransaction transaction;
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    public CustomerReponsitory() {
+    public CustomerRepository() {
         entityManager = ConnectJpa.getInstance().getEntityManager();
 
         transaction = entityManager.getTransaction();

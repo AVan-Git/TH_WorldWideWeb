@@ -7,18 +7,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vn.edu.iuh.fit.connect.ConnectJpa;
 import vn.edu.iuh.fit.models.Product;
-import vn.edu.iuh.fit.models.ProductImage;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductReponsitory {
+public class ProductRepository {
     private EntityManager entityManager;
     private EntityTransaction transaction;
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    public ProductReponsitory() {
+    public ProductRepository() {
         entityManager = ConnectJpa.getInstance().getEntityManager();
         transaction = entityManager.getTransaction();
     }

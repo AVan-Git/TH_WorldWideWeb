@@ -3,7 +3,7 @@ package vn.edu.iuh.fit;
 import vn.edu.iuh.fit.enums.EmployeeStatus;
 import vn.edu.iuh.fit.models.Customer;
 import vn.edu.iuh.fit.models.Employee;
-import vn.edu.iuh.fit.repositores.CustomerReponsitory;
+import vn.edu.iuh.fit.repositores.CustomerRepository;
 import vn.edu.iuh.fit.repositores.EmployeeRepository;
 
 import java.time.LocalDate;
@@ -36,7 +36,7 @@ public class MainTextRepository {
 //        employeeRepository.getAllEmployee().forEach(System.out::println);
 //            employeeRepository.delete(emp.getId());
 
-        CustomerReponsitory customerReponsitory = new CustomerReponsitory();
+        CustomerRepository customerReponsitory = new CustomerRepository();
         Customer cus = new Customer();
         cus.setName("Tran binh  3");
         cus.setEmail("Binh3@gmail.com");

@@ -7,82 +7,80 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vn.edu.iuh.fit.connect.ConnectJpa;
 import vn.edu.iuh.fit.models.ProductImage;
-import vn.edu.iuh.fit.models.ProductPrice;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProductPriceReponsitory {
+public class ProductImageRepository {
     private EntityManager entityManager;
     private EntityTransaction transaction;
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
-    public ProductPriceReponsitory() {
+    public ProductImageRepository() {
         entityManager = ConnectJpa.getInstance().getEntityManager();
         transaction = entityManager.getTransaction();
     }
     //
-    public  void insert(ProductPrice price) {
+    public  void insert(ProductImage image) {
         try {
             transaction.begin();
-            entityManager.persist(price);
+            entityManager.persist(image);
             transaction.commit();
         } catch (Exception e) {
-            System.out.println("ProductPriceReponsitory --- insert: " );
+            System.out.println("ProductImageReponsitory --- insert: " );
             transaction.rollback();
             logger.error(e.getMessage());
         }
     }
     //
-    public void update(ProductPrice price) {
+    public void update(ProductImage image) {
         try {
             transaction.begin();
-            entityManager.merge(price);
+            entityManager.merge(image);
             transaction.commit();
         } catch (Exception e) {
-            System.out.println("ProductPriceReponsitory - update");
+            System.out.println("ProductImageReponsitory - update");
             transaction.rollback();
             logger.error(e.getMessage());
         }
     }
 
-    public void delete(LocalDateTime id) {
+    public void delete(long id) {
         try {
             transaction.begin();
-            entityManager.remove(entityManager.find(ProductPrice.class, id));
+            entityManager.remove(entityManager.find(ProductImage.class, id));
             transaction.commit();
         } catch (Exception e) {
-            System.out.println("ProductPriceReponsitory - del");
+            System.out.println("ProductImageReponsitory - del");
             transaction.rollback();
             logger.error(e.getMessage());
         }
     }
-    public Optional<ProductPrice> getById (LocalDateTime id) {
-        ProductPrice prod = null;
+    public Optional<ProductImage> getById (long id) {
+        ProductImage prod = null;
         try {
             transaction.begin();
-            TypedQuery<ProductPrice> query = entityManager.createQuery("SELECT p FROM ProductPrice p WHERE p.priceDateTime=:id", ProductPrice.class);
+            TypedQuery<ProductImage> query = entityManager.createQuery("SELECT p FROM ProductImage p WHERE p.id=:id", ProductImage.class);
             query.setParameter("id", id);
             prod = query.getSingleResult();
             transaction.commit();
         }catch (Exception e){
-            System.out.println("ProductPriceReponsitory - readID");
+            System.out.println("ProductImageReponsitory - readID");
             transaction.rollback();
             logger.error(e.getMessage());
         }
         return prod == null ? Optional.empty(): Optional.of(prod);
     }
-    public List<ProductPrice> getAll(){
-        List<ProductPrice> lst =new ArrayList<>();
+    public List<ProductImage> getAll(){
+        List<ProductImage> lst =new ArrayList<>();
         try {
             transaction.begin();
-            lst = entityManager.createQuery("SELECT p FROM ProductPrice p", ProductPrice.class).getResultList();
+            lst = entityManager.createQuery("SELECT p FROM ProductImage p", ProductImage.class).getResultList();
             transaction.commit();
         }catch (Exception e){
-            System.out.println("ProductPriceReponsitory - readAll");
+            System.out.println("ProductImageReponsitory - readAll");
             transaction.rollback();
             logger.error(e.getMessage());
         }
