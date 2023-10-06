@@ -1,7 +1,9 @@
 package vn.edu.iuh.fit;
 
 import vn.edu.iuh.fit.enums.EmployeeStatus;
+import vn.edu.iuh.fit.models.Customer;
 import vn.edu.iuh.fit.models.Employee;
+import vn.edu.iuh.fit.repositores.CustomerReponsitory;
 import vn.edu.iuh.fit.repositores.EmployeeRepository;
 
 import java.time.LocalDate;
@@ -32,7 +34,24 @@ public class MainTextRepository {
 //        }
 //        employeeRepository.update(emp);
 //        employeeRepository.getAllEmployee().forEach(System.out::println);
-            employeeRepository.delete(emp.getId());
+//            employeeRepository.delete(emp.getId());
+
+        CustomerReponsitory customerReponsitory = new CustomerReponsitory();
+        Customer cus = new Customer();
+        cus.setName("Tran binh  3");
+        cus.setEmail("Binh3@gmail.com");
+        cus.setPhone("0951753003");
+        cus.setAddress("12 phan co ich UPdate");
+        cus.setId(252L);
+
+//        customerReponsitory.insert(cus);
+//        customerReponsitory.update(cus);
+        Optional<Customer> opCus = customerReponsitory.getById(152L);
+        if (opCus.isPresent()) System.out.println(opCus.get());
+        else System.out.println("err byid");
+        //        customerReponsitory.delete(252L);
+        customerReponsitory.getAll().forEach(System.out::println);
+
         System.out.println("...END.");
     }
 }
