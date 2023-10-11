@@ -11,6 +11,13 @@ import java.util.List;
  */
 @Entity
 @Table(name = "employee")
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "getAllEmployees",
+                query = "SELECT * FROM employee",
+                resultClass = Employee.class
+        )
+})
 public class Employee {
     @Id
     @GeneratedValue

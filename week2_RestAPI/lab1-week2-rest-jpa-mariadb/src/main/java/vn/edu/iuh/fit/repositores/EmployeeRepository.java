@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import vn.edu.iuh.fit.connect.ConnectJpa;
 import vn.edu.iuh.fit.models.Employee;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class EmployeeRepository {
@@ -51,13 +53,13 @@ public class EmployeeRepository {
     }
 
     //delete
-    public void delete(Employee employee) {
+    public void delete(long maXoa) {
         try {
             transaction.begin();
-            entityManager.remove(employee);
+            entityManager.remove(entityManager.find(Employee.class, maXoa));
             transaction.commit();
         } catch (Exception e) {
-            System.out.println("err --- delete: " + employee);
+            System.out.println("err --- delete: " + maXoa);
             transaction.rollback();
             logger.error(e.getMessage());
         }
@@ -69,8 +71,18 @@ public class EmployeeRepository {
                 .createQuery("SELECT e FROM Employee e WHERE e.id=:id", Employee.class);
         query.setParameter("id", id);
         Employee e = query.getSingleResult();
+//        Employee e = entityManager.find(Employee.class, id);
         return e == null ? Optional.empty() : Optional.of(e);
     }
     //getALl
+    public List<Employee> getAllEmployee(){
+        List<Employee> lst = new ArrayList<>();
+
+        lst = entityManager
+                .createNamedQuery("getAllEmployees", Employee.class)
+                .getResultList();
+
+        return lst;
+    }
 
 }

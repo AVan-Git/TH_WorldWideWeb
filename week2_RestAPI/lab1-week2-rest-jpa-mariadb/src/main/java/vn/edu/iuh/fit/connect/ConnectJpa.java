@@ -9,7 +9,7 @@ public class ConnectJpa {
     private EntityManager entityManager;
 
     public ConnectJpa() {
-        entityManager = Persistence.createEntityManagerFactory("lab_week2")
+        entityManager = Persistence.createEntityManagerFactory("lab-week2")
                 .createEntityManager();
     }
     public synchronized static ConnectJpa getInstance(){
