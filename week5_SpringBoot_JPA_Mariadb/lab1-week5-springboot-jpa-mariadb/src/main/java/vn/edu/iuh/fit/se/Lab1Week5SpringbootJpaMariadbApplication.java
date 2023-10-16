@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Bean;
 import vn.edu.iuh.fit.se.entity.Address;
 import vn.edu.iuh.fit.se.entity.Candidate;
 import vn.edu.iuh.fit.se.enums.CountryCode;
-import vn.edu.iuh.fit.se.repositories.AddressRepository;
-import vn.edu.iuh.fit.se.repositories.CandidateRepository;
+import vn.edu.iuh.fit.se.service.impl.CandidateServiceImpl;
 
 import java.time.LocalDate;
 import java.util.Random;
@@ -18,9 +17,9 @@ import java.util.Random;
 public class Lab1Week5SpringbootJpaMariadbApplication {
 
     @Autowired
-    private CandidateRepository candidateRepository;
-    @Autowired
-    private AddressRepository addressRepository;
+    private CandidateServiceImpl candidateService;
+//    @Autowired
+//    private AddressRepository addressRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Lab1Week5SpringbootJpaMariadbApplication.class, args);
@@ -59,14 +58,14 @@ public class Lab1Week5SpringbootJpaMariadbApplication {
                 candidate.setEmail("email"+i +"@gmail.com");
                 candidate.setPhone(random.nextLong(1000000000L,9999999999L) + "");
 
-                candidateRepository.save(candidate);
+                candidateService.insert(candidate);
 
 
                 System.out.println(candidate);
 
             }
 
-            candidateRepository.findAll().forEach(System.out::println);
+            candidateService.findAll().forEach(System.out::println);
             System.out.println("-----END-----");
         };
     }
