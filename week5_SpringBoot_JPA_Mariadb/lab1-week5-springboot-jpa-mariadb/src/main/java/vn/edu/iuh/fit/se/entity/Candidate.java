@@ -16,9 +16,9 @@ import java.util.List;
 public class Candidate {// ung vien
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "full_name")
+    @Column(name = "cand_id")
     private long id;
-    @Column(name = "cand_id", nullable = false)
+    @Column(name = "full_name", nullable = false)
     private String name;
     @Column(name = "dob")
     private LocalDate dob;

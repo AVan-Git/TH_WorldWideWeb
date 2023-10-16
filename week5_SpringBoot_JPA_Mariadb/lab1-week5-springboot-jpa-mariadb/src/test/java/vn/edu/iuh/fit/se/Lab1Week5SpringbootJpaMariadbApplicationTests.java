@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.se.lab1week5springbootjpamariadb;
+package vn.edu.iuh.fit.se;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

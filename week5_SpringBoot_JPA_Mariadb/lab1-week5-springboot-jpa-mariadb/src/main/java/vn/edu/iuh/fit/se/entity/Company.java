@@ -23,7 +23,7 @@ public class Company {
     private String webUrl;
     @Column(name = "email",unique = true)
     private String email;
-    @Column(name = "comp_name", unique = true)
+    @Column(name = "phone", unique = true)
     private String phone;
     @Column(name = "about", length = 2000)
     private String about;

@@ -17,13 +17,13 @@ public class Address {
     private long id;
     @Column(name = "city", length = 50, nullable = false)
     private String city;
-    @Column(name = "address_id", length = 6, nullable = false)
+    @Column(name = "country", length = 6, nullable = false)
     private String country;
-    @Column(name = "address_id", length = 7)
+    @Column(name = "zip_code", length = 7)
     private String zipCode;
-    @Column(name = "address_id", length = 150)
+    @Column(name = "street", length = 150)
     private String street;
-    @Column(name = "address_id", length = 20)
+    @Column(name = "number", length = 20)
     private String number;
 
     //JPA

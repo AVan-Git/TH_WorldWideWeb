@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.se.lab1week5springbootjpamariadb;
+package vn.edu.iuh.fit.se;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
