@@ -24,4 +24,14 @@ public class Job {
     @ManyToOne
     @JoinColumn(name = "comp_id", nullable = false)
     private Company company;
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", company=" + company.getId() +
+                '}';
+    }
 }

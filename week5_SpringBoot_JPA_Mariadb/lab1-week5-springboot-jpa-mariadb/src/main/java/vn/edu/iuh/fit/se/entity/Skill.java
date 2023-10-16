@@ -7,7 +7,7 @@ import vn.edu.iuh.fit.se.enums.SkillType;
 import java.util.List;
 
 @Entity
-@Table(name = "company")
+@Table(name = "skill")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,4 +30,14 @@ public class Skill {
     @OneToMany(mappedBy = "skill")
     private List<CandidateSkill> candidateSkillList;
 
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+//                ", candidateSkillList=" + candidateSkillList +
+                '}';
+    }
 }

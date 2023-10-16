@@ -31,4 +31,15 @@ public class JobSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Override
+    public String toString() {
+        return "JobSkill{" +
+                "skillLevel=" + skillLevel.getLevel() +
+                ", moreInfo='" + moreInfo + '\'' +
+                ", job=" + job.getId() +
+                ", skill=" + skill.getId() +
+                ", id=" + id +
+                '}';
+    }
 }

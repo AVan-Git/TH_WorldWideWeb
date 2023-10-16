@@ -12,4 +12,7 @@ public enum SkillLevel {
         this.level = level;
     }
 
+    public int getLevel() {
+        return level;
+    }
 }

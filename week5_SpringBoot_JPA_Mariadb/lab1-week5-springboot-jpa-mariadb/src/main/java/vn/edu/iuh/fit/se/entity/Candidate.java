@@ -36,4 +36,15 @@ public class Candidate {// ung vien
     @OneToMany(mappedBy = "candidate")
     private List<Experience> experiences;
 
+    @Override
+    public String toString() {
+        return "Candidate{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dob=" + dob +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }

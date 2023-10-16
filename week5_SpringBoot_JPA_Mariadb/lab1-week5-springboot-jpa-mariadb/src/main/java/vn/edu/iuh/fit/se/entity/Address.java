@@ -2,6 +2,7 @@ package vn.edu.iuh.fit.se.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import vn.edu.iuh.fit.se.enums.CountryCode;
 
 @Entity
 @Table(name = "address")
@@ -15,10 +16,10 @@ public class Address {
     @Column(name = "address_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "city", length = 50, nullable = false)
+    @Column(name = "city", length = 50)
     private String city;
-    @Column(name = "country", length = 6, nullable = false)
-    private String country;
+    @Column(name = "country")
+    private CountryCode country;
     @Column(name = "zip_code", length = 7)
     private String zipCode;
     @Column(name = "street", length = 150)
@@ -38,7 +39,7 @@ public class Address {
         return "Address{" +
                 "id=" + id +
                 ", city='" + city + '\'' +
-                ", country='" + country + '\'' +
+                ", country='" + country.getCountryCode() + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", street='" + street + '\'' +
                 ", number='" + number + '\'' +

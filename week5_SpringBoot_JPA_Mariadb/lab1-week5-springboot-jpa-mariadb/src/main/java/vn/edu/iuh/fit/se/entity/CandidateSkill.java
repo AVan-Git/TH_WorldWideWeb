@@ -30,4 +30,15 @@ public class CandidateSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Override
+    public String toString() {
+        return "CandidateSkill{" +
+                "skillLevel=" + skillLevel.getLevel() +
+                ", moreInfo='" + moreInfo + '\'' +
+                ", candidate=" + candidate.getId() +
+                ", skill=" + skill.getId() +
+                ", id=" + id +
+                '}';
+    }
 }

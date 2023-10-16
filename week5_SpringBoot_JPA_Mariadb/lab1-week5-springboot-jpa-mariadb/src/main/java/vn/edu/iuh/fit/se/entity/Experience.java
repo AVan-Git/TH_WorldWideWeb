@@ -36,4 +36,17 @@ public class Experience {
     @ManyToOne
     @JoinColumn(name = "cand_id", nullable = false)
     private Candidate candidate;
+
+    @Override
+    public String toString() {
+        return "Experience{" +
+                "id=" + id +
+                ", company='" + company + '\'' +
+                ", role='" + role + '\'' +
+                ", description='" + description + '\'' +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", candidate=" + candidate.getId() +
+                '}';
+    }
 }
