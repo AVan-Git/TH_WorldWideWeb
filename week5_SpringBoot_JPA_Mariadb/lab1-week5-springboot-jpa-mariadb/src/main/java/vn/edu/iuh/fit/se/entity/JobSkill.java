@@ -2,25 +2,27 @@ package vn.edu.iuh.fit.se.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import vn.edu.iuh.fit.se.entity.key.CandidateSkillKey;
+import vn.edu.iuh.fit.se.entity.key.JobSkillKey;
 import vn.edu.iuh.fit.se.enums.SkillLevel;
+
 @Entity
-@Table(name = "candidate_skill")
+@Table(name = "job_skill")
+@IdClass(JobSkillKey.class)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@IdClass(CandidateSkillKey.class)
-public class CandidateSkill {
-
+public class JobSkill {
+    @Column(name = "skill_level", nullable = false)
     private SkillLevel skillLevel;
+    @Column(name = "more_info", length = 1000)
     private String moreInfo;
 
     @Id
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cand_id")
-    private Candidate candidate;
+    @JoinColumn(name = "job_id")
+    private Job job;
     @Id
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "skill_id")
