@@ -11,6 +11,7 @@ import java.util.Objects;
 public class CandidateSkillKey implements Serializable {
     private Candidate candidate;
     private Skill skill;
+    private long id;
 
     public CandidateSkillKey() {
     }
@@ -20,12 +21,11 @@ public class CandidateSkillKey implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CandidateSkillKey that = (CandidateSkillKey) o;
-        return Objects.equals(candidate, that.candidate) && Objects.equals(skill, that.skill);
+        return id == that.id && Objects.equals(candidate, that.candidate) && Objects.equals(skill, that.skill);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(candidate, skill);
+        return Objects.hash(candidate, skill, id);
     }
-
 }
