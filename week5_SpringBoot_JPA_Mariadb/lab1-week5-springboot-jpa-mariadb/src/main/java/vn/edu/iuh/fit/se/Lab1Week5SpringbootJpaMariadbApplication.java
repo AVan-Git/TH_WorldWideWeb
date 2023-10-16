@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.RequestMapping;
 import vn.edu.iuh.fit.se.entity.Address;
 import vn.edu.iuh.fit.se.entity.Candidate;
 import vn.edu.iuh.fit.se.enums.CountryCode;
@@ -25,7 +26,7 @@ public class Lab1Week5SpringbootJpaMariadbApplication {
         SpringApplication.run(Lab1Week5SpringbootJpaMariadbApplication.class, args);
     }
 
-    @Bean
+//    @Bean
     public CommandLineRunner sampleRecord(){
         return  args -> {
             System.out.println("-----START-----");

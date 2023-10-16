@@ -2,13 +2,17 @@
 
 ## Tai lieu
 * [Link bt](https://github.com/AVan-Git/TH_WorldWideWeb/blob/bt-week5/week5_SpringBoot_JPA_Mariadb/lab1-week5-springboot-jpa-mariadb/taiLieu/lab-week-05.pdf)
+* [query lab1 - week 5](./taiLieu/sql/query.sql)
+* tài liệu [web spring](https://spring.io/guides/tutorials/rest/)
+
+
 ## Anh minh hoa
 ### anh soure code
 ![...](./taiLieu/images/img_code.png)
 ### Anh mariadb
 ![...](./taiLieu/images/img_mariadb.png)
 ### anh web - postman
-![...](./taiLieu/images/img_code.png)
+![...](./taiLieu/images/img_web.png)
 
 
 ### Reference Documentation

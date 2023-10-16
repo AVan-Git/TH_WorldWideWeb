@@ -2,11 +2,8 @@ package vn.edu.iuh.fit.se.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.edu.iuh.fit.se.entity.Address;
 import vn.edu.iuh.fit.se.entity.Candidate;
-import vn.edu.iuh.fit.se.repositories.AddressRepository;
 import vn.edu.iuh.fit.se.repositories.CandidateRepository;
-import vn.edu.iuh.fit.se.service.AddressService;
 import vn.edu.iuh.fit.se.service.CandidateService;
 
 import java.util.List;
