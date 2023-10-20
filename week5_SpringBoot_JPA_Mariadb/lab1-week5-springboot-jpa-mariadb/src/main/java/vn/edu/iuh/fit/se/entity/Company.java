@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "company")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

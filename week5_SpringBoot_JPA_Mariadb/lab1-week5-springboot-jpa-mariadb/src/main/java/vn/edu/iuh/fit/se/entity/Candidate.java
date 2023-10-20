@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "candidate")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -44,7 +43,7 @@ public class Candidate {// ung vien
                 ", dob=" + dob +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", address=" + address +
+                ", address=" + address.getId() +
                 '}';
     }
 }

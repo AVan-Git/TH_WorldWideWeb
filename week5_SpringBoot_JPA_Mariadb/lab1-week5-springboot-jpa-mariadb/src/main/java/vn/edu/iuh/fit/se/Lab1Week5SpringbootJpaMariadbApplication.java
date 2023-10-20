@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import vn.edu.iuh.fit.se.entity.Address;
 import vn.edu.iuh.fit.se.entity.Candidate;
 import vn.edu.iuh.fit.se.enums.CountryCode;
+import vn.edu.iuh.fit.se.repositories.AddressRepository;
 import vn.edu.iuh.fit.se.service.impl.CandidateServiceImpl;
 
 import java.time.LocalDate;
@@ -19,14 +20,14 @@ public class Lab1Week5SpringbootJpaMariadbApplication {
 
     @Autowired
     private CandidateServiceImpl candidateService;
-//    @Autowired
-//    private AddressRepository addressRepository;
+    @Autowired
+    private AddressRepository addressRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Lab1Week5SpringbootJpaMariadbApplication.class, args);
     }
 
-//    @Bean
+    @Bean
     public CommandLineRunner sampleRecord(){
         return  args -> {
             System.out.println("-----START-----");

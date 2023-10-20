@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name = "job")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

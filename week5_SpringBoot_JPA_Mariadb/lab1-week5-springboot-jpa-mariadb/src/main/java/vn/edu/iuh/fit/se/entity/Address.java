@@ -6,7 +6,6 @@ import vn.edu.iuh.fit.se.enums.CountryCode;
 
 @Entity
 @Table(name = "address")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

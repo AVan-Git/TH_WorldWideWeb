@@ -7,7 +7,6 @@ import vn.edu.iuh.fit.se.enums.SkillLevel;
 
 @Entity
 @Table(name = "candidate_skill")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
