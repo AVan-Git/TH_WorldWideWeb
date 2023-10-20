@@ -27,11 +27,11 @@ public class Address {
     private String number;
 
     //JPA
-    @OneToOne(mappedBy = "address")
-    private Company company;
-
-    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
-    private Candidate candidate;
+//    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
+//    private Company company;
+//
+//    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
+//    private Candidate candidate;
 
     @Override
     public String toString() {

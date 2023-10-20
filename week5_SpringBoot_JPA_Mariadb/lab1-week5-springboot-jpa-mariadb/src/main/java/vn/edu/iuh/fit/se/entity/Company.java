@@ -28,12 +28,12 @@ public class Company {
     private String about;
 
     //JPA
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    @JoinColumn(name = "address")
+    @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company" , fetch = FetchType.EAGER)
     private List<Job> jobs;
 
     @Override
@@ -45,7 +45,7 @@ public class Company {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", about='" + about + '\'' +
-                ", address=" + address +
+                ", address=" + address.getId() +
                 '}';
     }
 }

@@ -27,7 +27,7 @@ public class Lab1Week5SpringbootJpaMariadbApplication {
         SpringApplication.run(Lab1Week5SpringbootJpaMariadbApplication.class, args);
     }
 
-    @Bean
+//    @Bean
     public CommandLineRunner sampleRecord(){
         return  args -> {
             System.out.println("-----START-----");

@@ -34,6 +34,7 @@ public class CandidateController {
 
     @PostMapping("")
     public ResponseEntity<?> addCandidate(@RequestBody Candidate candidate) {
+        System.out.println(candidate);
         candidateService.insert(candidate);
 
         return new ResponseEntity<>("Finish Add "+ candidate, HttpStatus.CREATED);
@@ -42,7 +43,15 @@ public class CandidateController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody Candidate candidate) {
         Optional<Candidate> opt = candidateService.findById(id);
-        candidateService.insert(candidate);
+        Candidate canNew = opt.get();
+        canNew.setDob(candidate.getDob());
+        canNew.setAddress(candidate.getAddress());
+        canNew.setName(candidate.getName());
+        canNew.setEmail(candidate.getEmail());
+        canNew.setPhone(candidate.getPhone());
+        canNew.setExperiences(candidate.getExperiences());
+        candidateService.insert(canNew);
+        System.err.println("Set TH Tạo mới mà bị trùng email, phone,address thì sao");
         if (opt.isPresent()){
             return new ResponseEntity<>("Finish Update "+ candidate, HttpStatus.OK);
         }
