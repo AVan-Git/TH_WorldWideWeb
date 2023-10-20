@@ -28,9 +28,9 @@ public class Candidate {// ung vien
     private String phone;
 
     //JPA
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    @JoinColumn(name = "address")
+    @JoinColumn(name = "address_id")
     private Address address;
 
     @OneToMany(mappedBy = "candidate")

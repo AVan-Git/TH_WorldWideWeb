@@ -31,7 +31,7 @@ public class Address {
     @OneToOne(mappedBy = "address")
     private Company company;
 
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
     private Candidate candidate;
 
     @Override
