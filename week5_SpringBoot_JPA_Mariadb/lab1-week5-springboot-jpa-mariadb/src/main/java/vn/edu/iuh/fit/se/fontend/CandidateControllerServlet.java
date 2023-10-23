@@ -1,16 +1,16 @@
-package vn.edu.iuh.fit.fontend.controllers;
+package vn.edu.iuh.fit.se.fontend;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import vn.edu.iuh.fit.se.service.impl.CandidateServiceImpl;
 
+import java.util.Optional;
+
 @Controller
-//@RequestMapping("/candidate_fe")
-public class CandidateController {
+public class CandidateControllerServlet {
 
     @Autowired
     private CandidateServiceImpl candidateService;
@@ -21,6 +21,13 @@ public class CandidateController {
         return "candidates/candidate";
     }
 
+    @GetMapping("candidate_fe")
+    public String showCandidateListPaging(Model model,
+                                          @RequestParam("page") Optional<Integer> page,
+                                          @RequestParam("size") Optional<Integer> size)
+    {
 
 
+        return "candidates/candidates-paging";
+    }
 }

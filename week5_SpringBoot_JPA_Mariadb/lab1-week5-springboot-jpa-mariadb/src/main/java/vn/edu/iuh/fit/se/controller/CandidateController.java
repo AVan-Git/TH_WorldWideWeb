@@ -24,6 +24,11 @@ public class CandidateController {
         return candidateService.findAll();
     }
 
+    @GetMapping("/list")
+    public String showCandidateList(Model model) {
+        return "/candidates/candidate.html";
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable("id") long id) {
