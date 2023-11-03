@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Candidate - Page</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,6 +18,46 @@
     <!-- place navbar here -->
 </header>
 <main>
+
+    <h1 class="text-center text-danger">List Candidate</h1>
+    <hr/>
+    <div th:switch="${candidatePage}">
+        <h2 th:case="null">No candidates yet!</h2>
+        <div th:case="*">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>dob</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="candidate : ${candidatePage}">
+                    <td th:text="${candidate.id}"></td>
+                    <td th:text="${candidate.name}"></td>
+                    <td th:text="${candidate.dob}"></td>
+                    <td th:text="${candidate.address.getNumber() } +', '+ ${candidate.address.getStreet() } +', '+ ${candidate.address.getCity()} "></td>
+                    <td th:text="${candidate.phone}"></td>
+                    <td th:text="${candidate.email}"></td>
+                    <td><a th:href="@{/edit/{id}(id=${candidate.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${candidate.id})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <span th:each="number: ${pageNumber}">
+<!--                <a th:href="@{?size=10&page='${number}'}" th:text="${number}"></a>-->
+                    <a th:href="@{/candidate_fe(size=10,page=${number})}" th:text="${number}"></a>
+
+            </span>
+        </div>
+        <p><a href="/add">Add a new user</a></p>
+    </div>
 
 </main>
 <footer>

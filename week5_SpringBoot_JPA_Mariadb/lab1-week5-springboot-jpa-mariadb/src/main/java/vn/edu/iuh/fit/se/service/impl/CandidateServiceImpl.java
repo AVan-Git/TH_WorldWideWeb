@@ -1,6 +1,8 @@
 package vn.edu.iuh.fit.se.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import vn.edu.iuh.fit.se.entity.Candidate;
 import vn.edu.iuh.fit.se.repositories.CandidateRepository;
@@ -34,5 +36,10 @@ public class CandidateServiceImpl implements CandidateService {
     @Override
     public List<Candidate> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public Page<Candidate> findBaginated(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 }

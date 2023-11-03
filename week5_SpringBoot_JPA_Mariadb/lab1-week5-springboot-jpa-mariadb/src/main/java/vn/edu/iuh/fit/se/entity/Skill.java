@@ -21,7 +21,7 @@ public class Skill {
     private String name;
     @Column(name = "skill_desc", length = 300)
     private String description;
-    @Column(name = "skill_type")
+    @Column(name = "skill_type" )
     @Enumerated(EnumType.STRING)
     private SkillType type;
 

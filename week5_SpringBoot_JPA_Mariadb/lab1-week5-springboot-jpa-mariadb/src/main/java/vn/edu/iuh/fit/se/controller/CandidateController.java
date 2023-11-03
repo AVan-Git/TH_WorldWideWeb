@@ -24,10 +24,10 @@ public class CandidateController {
         return candidateService.findAll();
     }
 
-    @GetMapping("/list")
-    public String showCandidateList(Model model) {
-        return "/candidates/candidate.html";
-    }
+//    @GetMapping("/list")
+//    public String showCandidateList(Model model) {
+//        return "/candidates/candidate.html";
+//    }
 
 
     @GetMapping("/{id}")
