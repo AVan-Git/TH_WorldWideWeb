@@ -12,4 +12,5 @@ import java.util.List;
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 
     Page<Candidate> findAll(Pageable pageable);
+    List<Candidate> findAllByPhoneIsContaining(String phone, Pageable pageable);
 }

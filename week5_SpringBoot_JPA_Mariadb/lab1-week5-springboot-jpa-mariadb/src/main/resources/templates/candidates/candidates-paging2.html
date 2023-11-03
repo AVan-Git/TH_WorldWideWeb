@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Candidate - Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+<header>
+    <!-- place navbar here -->
+</header>
+<main>
+
+    <h1 class="text-center text-danger">List Candidate</h1>
+    <hr/>
+    <div th:switch="${candidatePage}">
+        <h2 th:case="null">No candidates yet!</h2>
+        <div th:case="*">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>dob</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="candidate : ${candidatePage}">
+                    <td th:text="${candidate.id}"></td>
+                    <td th:text="${candidate.name}"></td>
+                    <td th:text="${candidate.dob}"></td>
+                    <td th:text="${candidate.address.getNumber() } +', '+ ${candidate.address.getStreet() } +', '+ ${candidate.address.getCity()} "></td>
+                    <td th:text="${candidate.phone}"></td>
+                    <td th:text="${candidate.email}"></td>
+                    <td><a th:href="@{/edit/{id}(id=${candidate.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${candidate.id})}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+            <span th:each="number: ${pageNumber}">
+<!--                <a th:href="@{?size=10&page='${number}'}" th:text="${number}"></a>-->
+                    <a th:href="@{/candidate_fe(size=10,page=${number})}" th:text="${number}"></a>
+
+            </span>
+        </div>
+        <p><a href="/add">Add a new user</a></p>
+    </div>
+
+</main>
+<footer>
+    <!-- place footer here -->
+</footer>
+<!-- Bootstrap JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

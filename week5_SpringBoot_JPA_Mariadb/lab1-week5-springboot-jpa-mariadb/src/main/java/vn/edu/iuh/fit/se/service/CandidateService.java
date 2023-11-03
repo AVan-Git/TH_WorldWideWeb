@@ -15,5 +15,6 @@ public interface CandidateService {
     Optional<Candidate> findById(Long value);
     List<Candidate> findAll();
     Page<Candidate> findBaginated(Pageable pageable);
+//    List<Candidate> findAllByPhoneIsLikeIgnoreCase(String phone, Pageable pageable);
 
 }

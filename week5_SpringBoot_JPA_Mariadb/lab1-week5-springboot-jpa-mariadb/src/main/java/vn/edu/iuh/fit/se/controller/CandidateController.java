@@ -1,6 +1,10 @@
 package vn.edu.iuh.fit.se.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +15,8 @@ import vn.edu.iuh.fit.se.service.impl.CandidateServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @RestController
 @RequestMapping("/candidates")
@@ -75,6 +81,21 @@ public class CandidateController {
         }
         return new ResponseEntity<>("Không tìm thấy" + id, HttpStatus.NOT_FOUND);
 
+    }
+    @GetMapping("page")
+    public  Page<Candidate> showCandidateListPaging(
+            @RequestParam("page") Optional<Integer> page,
+            @RequestParam("size") Optional<Integer> size)
+    {
+        int currentPage = page.orElse(1);
+        int pageSize = size.orElse(10);
+
+        Pageable pageable =  PageRequest.of(currentPage-1, pageSize, Sort.by("phone").descending());
+        Page<Candidate> candidatePage =  candidateService.findBaginated(
+                pageable
+        );
+
+        return candidatePage;
     }
 
 }

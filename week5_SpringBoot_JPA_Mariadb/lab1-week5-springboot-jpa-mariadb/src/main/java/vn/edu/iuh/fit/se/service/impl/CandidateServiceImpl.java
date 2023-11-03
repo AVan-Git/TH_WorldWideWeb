@@ -42,4 +42,9 @@ public class CandidateServiceImpl implements CandidateService {
     public Page<Candidate> findBaginated(Pageable pageable) {
         return repository.findAll(pageable);
     }
+
+//    @Override
+//    public List<Candidate> findAllByPhoneIsLikeIgnoreCase(String phone, Pageable pageable) {
+//        return repository.findAllByPhoneIsLikeIgnoreCase(phone,pageable);
+//    }
 }

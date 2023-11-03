@@ -42,7 +42,7 @@ public class CandidateControllerServlet {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(10);
 
-        Pageable pageable =  PageRequest.of(currentPage-1, pageSize);
+        Pageable pageable =  PageRequest.of(currentPage-1, pageSize, Sort.by("phone").descending());
         Page<Candidate> candidatePage =  candidateService.findBaginated(
                 pageable
         );
@@ -59,5 +59,32 @@ public class CandidateControllerServlet {
 
 
         return "candidates/candidates-paging";
+    }
+    @GetMapping("/page")
+    public  String showCandidateListPaging2(Model model,
+                                           @RequestParam("page") Optional<Integer> page,
+                                           @RequestParam("size") Optional<Integer> size)
+    {
+        int currentPage = page.orElse(1);
+        int pageSize = size.orElse(10);
+
+        Pageable pageable =  PageRequest.of(currentPage-1, pageSize);
+        List<Candidate> candidatePage =  candidateRepository.findAllByPhoneIsContaining(
+                "217",
+                pageable
+        );
+        candidatePage.forEach(System.out::println);
+        model.addAttribute("candidatePage", candidatePage);
+
+        int totalPage = candidatePage.size();
+        if (totalPage > 0) {
+            List<Integer> pageNumber = IntStream.rangeClosed(1, totalPage)
+                    .boxed()
+                    .collect(Collectors.toList());
+            model.addAttribute("pageNumber", pageNumber);
+        }
+
+
+        return "candidates/candidates-paging2";
     }
 }
