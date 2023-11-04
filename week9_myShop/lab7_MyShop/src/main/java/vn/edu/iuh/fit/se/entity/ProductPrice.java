@@ -1,11 +1,13 @@
 package vn.edu.iuh.fit.se.entity;
 
 import jakarta.persistence.*;
+import vn.edu.iuh.fit.se.entity.keyId.PriceId;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "product_price")
+@IdClass(PriceId.class)
 public class ProductPrice {
     @Id
     @JoinColumn(name = "product_id")

@@ -8,3 +8,4 @@ Thực hành www thứ 7
 * link xem [HttpStatus - Code](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpStatus.html)
 * so sanh FetchType LAZY vs EAGER ( [link](https://stackjava.com/hibernate/hibernate-fetchtype-la-gi-phan-biet-fetchtype-lazy-voi-eager.html) )
 * example self-referencing ( [link](https://thorben-janssen.com/self-referencing-associations/) )
+* Hai cách để triển khai khóa tổng hợp - làm theo cách 2( [link](https://jpa-buddy.com/blog/the-ultimate-guide-on-composite-ids-in-jpa-entities/) )
