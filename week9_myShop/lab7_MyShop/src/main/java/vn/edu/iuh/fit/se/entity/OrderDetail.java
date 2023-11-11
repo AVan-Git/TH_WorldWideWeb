@@ -1,9 +1,11 @@
 package vn.edu.iuh.fit.se.entity;
 
 import jakarta.persistence.*;
+import vn.edu.iuh.fit.se.entity.keyId.OrderDetailId;
 
 @Entity
 @Table(name = "order_detail")
+@IdClass(OrderDetailId.class)
 public class OrderDetail {
     @Column(name = "quantity", nullable = false)
     private double quantity;

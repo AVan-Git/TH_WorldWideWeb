@@ -5,6 +5,7 @@ import vn.edu.iuh.fit.se.entity.Product;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class PriceId implements Serializable {
 
@@ -33,5 +34,18 @@ public class PriceId implements Serializable {
     }
 
     public PriceId() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PriceId priceId = (PriceId) o;
+        return Objects.equals(product, priceId.product) && Objects.equals(price_date_time, priceId.price_date_time);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(product, price_date_time);
     }
 }
