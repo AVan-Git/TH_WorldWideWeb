@@ -1,0 +1,33 @@
+package com.fit.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fit.dao.HocPhanDAO;
+import com.fit.entity.HocPhan;
+
+public class HocPhanServiceImpl implements HocPhanService{
+	 @Autowired
+	   private HocPhanDAO hocPhanDAO;
+	   @Override
+	   public List<HocPhan> getAllHocPhans() {
+			
+			return hocPhanDAO.getAllHocPhan();
+		}
+	@Override
+	public void saveHocphan(HocPhan customer) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public HocPhan getHocPhan(int theId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void deleteHocPhan(int theId) {
+		// TODO Auto-generated method stub
+		
+	}
+}

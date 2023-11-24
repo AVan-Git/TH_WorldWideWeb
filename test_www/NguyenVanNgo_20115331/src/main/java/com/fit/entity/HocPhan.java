@@ -1,0 +1,82 @@
+package com.fit.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "hocphan")
+public class HocPhan {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "malop")
+    private int maLop;
+    @Column(name="monhoc")
+    private String monHoc;
+    @Column(name="sotinchi")
+    private String soTinChi;
+    @Column(name = "magv")
+    private String maGv;
+    @Column(name="loai")
+    private String loai;
+    @Column(name="phong")
+    private String phong;
+	public int getMaLop() {
+		return maLop;
+	}
+	public void setMaLop(int maLop) {
+		this.maLop = maLop;
+	}
+	public String getMonHoc() {
+		return monHoc;
+	}
+	public void setMonHoc(String monHoc) {
+		this.monHoc = monHoc;
+	}
+	public String getSoTinChi() {
+		return soTinChi;
+	}
+	public void setSoTinChi(String soTinChi) {
+		this.soTinChi = soTinChi;
+	}
+	public String getMaGv() {
+		return maGv;
+	}
+	public void setMaGv(String maGv) {
+		this.maGv = maGv;
+	}
+	public String getLoai() {
+		return loai;
+	}
+	public void setLoai(String loai) {
+		this.loai = loai;
+	}
+	public String getPhong() {
+		return phong;
+	}
+	public void setPhong(String phong) {
+		this.phong = phong;
+	}
+	public HocPhan(int maLop, String monHoc, String soTinChi, String maGv, String loai, String phong) {
+		super();
+		this.maLop = maLop;
+		this.monHoc = monHoc;
+		this.soTinChi = soTinChi;
+		this.maGv = maGv;
+		this.loai = loai;
+		this.phong = phong;
+	}
+	public HocPhan() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "HocPhan [maLop=" + maLop + ", monHoc=" + monHoc + ", soTinChi=" + soTinChi + ", maGv=" + maGv
+				+ ", loai=" + loai + ", phong=" + phong + "]";
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.fit.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "hocphan")
+public class HocPhan {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "malop")
+    private int maLop;
+    @Column(name="monhoc")
+    private String monHoc;
+    @Column(name="sotinchi")
+    private String soTinChi;
+    @Column(name = "magv")
+    private String maGv;
+    @Column(name="loai")
+    private String loai;
+    @Column(name="phong")
+    private String phong;
+
+}

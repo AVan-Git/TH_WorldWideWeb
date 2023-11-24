@@ -1,0 +1,22 @@
+package com.fit.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fit.dao.HocPhanDAO;
+import com.fit.entity.HocPhan;
+
+public class HocPhanService {
+   @Autowired
+   HocPhanDAO hocPhanDAO;
+   
+   public List<HocPhan> getAllHocPhans() {
+		
+		return hocPhanDAO.getAllHocPhan();
+	}
+
+
+
+	
+}

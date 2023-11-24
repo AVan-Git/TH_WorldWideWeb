@@ -1,0 +1,15 @@
+package com.fit.dao;
+
+
+
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class HocPhanDAO {
+    
+	@Autowired
+	private SessionFactory sessionFac;
+	
+}

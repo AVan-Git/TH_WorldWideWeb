@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="container">
+		<h3>Save Customer</h3>
+		<form:form action="save" modelAttribute="tempHocPhan" method="POST">
+			<form:hidden path="maLop" />
+			<table>
+				<tbody>
+					<tr>
+						<td><label>Ma Lop:</label></td>
+						<td><form:input path="maLop" /></td>
+						<td><label>Mon Hoc:</label></td>
+						<td><form:input path="monHoc" /></td>
+						<td><label>So Tin Chi:</label></td>
+						<td><form:input path="soTinChi" /></td>
+						<td><label>Ma GV:</label></td>
+						<td><form:input path="maGv" /></td>
+						<td><label>Loai:</label></td>
+						<td><form:input path="loai" /></td>
+						<td><label>Phong:</label></td>
+						<td><form:input path="phong" /></td>
+					</tr>
+					<tr>
+						<td><label></label></td>
+						<td><input type="submit" value="Save" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form:form>
+	</div>
+</body>
+</html>
