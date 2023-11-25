@@ -50,20 +50,19 @@ public class CustomerServiceImpl implements CustomerService {
         try {
             transactionManager.begin();
             Optional<Customer> optional = reponsitory.findById(customer.getId());
-            if (optional.isPresent()){
+            if (optional.isPresent()) {
                 Customer cus = optional.get();
                 cus.setAddress(customer.getAddress());
                 cus.setEmail(customer.getEmail());
                 cus.setName(customer.getName());
                 cus.setPhone(customer.getPhone());
                 cus.setOrderList(customer.getOrderList());
-            }
-            else {
+            } else {
                 reponsitory.save(customer);
             }
             transactionManager.commit();
             result = true;
-        }catch (Exception e){
+        } catch (Exception e) {
             try {
                 transactionManager.rollback();
             } catch (SystemException ex) {
@@ -76,16 +75,30 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean delete(long id) {
-        return false;
+        boolean result = false;
+        try {
+            transactionManager.begin();
+            reponsitory.deleteById(id);
+            transactionManager.commit();
+            result = true;
+        } catch (Exception e) {
+            try {
+                transactionManager.rollback();
+            } catch (SystemException ex) {
+                throw new RuntimeException(ex);
+            }
+            logger.error(e.getMessage());
+        }
+        return result;
     }
 
     @Override
     public Optional<Customer> getById(long id) {
-        return Optional.empty();
+        return reponsitory.findById(id);
     }
 
     @Override
     public List<Customer> getAll() {
-        return null;
+        return reponsitory.findAll();
     }
 }
